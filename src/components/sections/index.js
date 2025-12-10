@@ -1,0 +1,10 @@
+export { default as HeroSection } from './HeroSection';
+export { default as ArtistSection } from './ArtistSection';
+export { default as ProgramSection } from './ProgramSection';
+export { default as TicketsSection } from './TicketsSection';
+export { default as DonationSection } from './DonationSection';
+export { default as GallerySection } from './GallerySection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as FAQSection } from './FAQSection';
+export { default as ContactSection } from './ContactSection';
+export { default as LocationSection } from './LocationSection';

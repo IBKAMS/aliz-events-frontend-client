@@ -1,0 +1,298 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "artists": "Artistes",
+    "program": "Programme",
+    "tickets": "Billetterie",
+    "donate": "Faire un don",
+    "gallery": "Galerie",
+    "testimonials": "Témoignages",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "location": "Localisation"
+  },
+  "hero": {
+    "subtitle": "Concert Chrétien",
+    "defaultDescription": "Vivez une expérience spirituelle unique avec des artistes exceptionnels",
+    "buyTickets": "Réserver mes places",
+    "seeProgram": "Voir le programme"
+  },
+  "countdown": {
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "seconds": "Secondes"
+  },
+  "artists": {
+    "title": "Nos Artistes",
+    "subtitle": "Line-up exceptionnel",
+    "description": "Découvrez les artistes exceptionnels qui vous feront vivre une soirée inoubliable",
+    "viewMore": "Voir plus",
+    "gallery": "Galerie photos",
+    "videos": "Vidéos",
+    "noArtists": "Les artistes seront bientôt annoncés"
+  },
+  "program": {
+    "title": "Programme",
+    "subtitle": "Déroulement de l'événement",
+    "description": "Un programme riche en émotions et en moments de grâce",
+    "day1": "Jour 1",
+    "featured": "Moment fort",
+    "noProgram": "Le programme sera bientôt disponible"
+  },
+  "tickets": {
+    "title": "Billetterie",
+    "subtitle": "Réservez vos places",
+    "description": "Réservez vos places et vivez une expérience unique",
+    "available": "Disponible",
+    "soldOut": "Épuisé",
+    "popular": "Populaire",
+    "inCart": "Dans le panier",
+    "select": "Sélectionner",
+    "quantity": "Quantité",
+    "attendeeInfo": "Informations des participants",
+    "attendee": "Participant",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "total": "Total",
+    "addToCart": "Ajouter au panier",
+    "fillAllFields": "Veuillez remplir tous les champs",
+    "noTickets": "Les billets seront bientôt disponibles"
+  },
+  "donation": {
+    "title": "Soutenez l'événement",
+    "subtitle": "Faites un don",
+    "description": "Votre générosité nous aide à rendre cet événement possible et à offrir une expérience inoubliable",
+    "yourContribution": "Votre contribution permet",
+    "contribution": {
+      "1": "Contribuer à la décoration de la salle",
+      "2": "Soutenir la sonorisation et l'éclairage",
+      "3": "Aider à l'accueil des invités",
+      "4": "Participer à la réussite du concert"
+    },
+    "donorInfo": "Vos informations",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "chooseAmount": "Choisissez un montant",
+    "customAmount": "Montant personnalisé",
+    "add": "Ajouter",
+    "minimumAmount": "Montant minimum: 1 000 FCFA",
+    "yourDonation": "Votre don",
+    "remove": "Retirer le don",
+    "validate": "Valider mon don",
+    "paymentMethod": "Moyen de paiement",
+    "paymentTitle": "Effectuer votre don",
+    "paymentDescription": "Envoyez votre don via Mobile Money au numéro suivant",
+    "donor": "Donateur",
+    "amount": "Montant",
+    "instructions": "Instructions:",
+    "step1": "Ouvrez votre application Wave ou Orange Money",
+    "step2": "Envoyez le montant au numéro ci-dessus",
+    "step3": "Indiquez votre nom comme référence",
+    "confirmDonation": "J'ai effectué mon don",
+    "successTitle": "Don enregistré !",
+    "successMessage": "Merci pour votre générosité. Votre don a été enregistré avec succès.",
+    "paymentReminder": "N'oubliez pas d'effectuer votre paiement via Wave ou Orange Money au numéro ci-dessous.",
+    "securePayment": "Paiement sécurisé. Votre don sera enregistré.",
+    "thankYou": "Merci pour votre générosité!",
+    "errors": {
+      "firstNameRequired": "Le prénom est requis",
+      "lastNameRequired": "Le nom est requis"
+    }
+  },
+  "gallery": {
+    "title": "Galerie Média",
+    "subtitle": "Photos et vidéos",
+    "description": "Revivez les moments forts de nos précédents événements",
+    "photos": "Photos",
+    "videos": "Vidéos",
+    "noMedia": "Aucun média disponible pour le moment"
+  },
+  "testimonials": {
+    "title": "Témoignages",
+    "subtitle": "Ce qu'ils en disent",
+    "description": "Découvrez ce que les participants de nos événements ont à dire"
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "Besoin d'aide?",
+    "description": "Trouvez les réponses à vos questions les plus courantes",
+    "categories": {
+      "all": "Toutes",
+      "tickets": "Billetterie",
+      "event": "Événement",
+      "payment": "Paiement"
+    },
+    "items": {
+      "tickets": {
+        "q1": "Comment puis-je acheter des billets?",
+        "a1": "Vous pouvez acheter vos billets directement sur notre site web en sélectionnant le type de billet souhaité et en procédant au paiement sécurisé.",
+        "q2": "Puis-je annuler ou rembourser mon billet?",
+        "a2": "Les billets ne sont pas remboursables sauf en cas d'annulation de l'événement. Contactez-nous pour plus d'informations."
+      },
+      "event": {
+        "q1": "Quels sont les horaires de l'événement?",
+        "a1": "Les portes ouvrent généralement 1h avant le début du spectacle. Consultez la section programme pour les horaires détaillés.",
+        "q2": "Y a-t-il un code vestimentaire?",
+        "a2": "Il n'y a pas de code vestimentaire strict, mais une tenue correcte est appréciée."
+      },
+      "payment": {
+        "q1": "Quels moyens de paiement acceptez-vous?",
+        "a1": "Nous acceptons les paiements par Mobile Money (Wave, Orange Money, MTN, Moov) et par carte bancaire (Visa, Mastercard).",
+        "q2": "Le paiement est-il sécurisé?",
+        "a2": "Oui, tous les paiements sont traités de manière sécurisée via nos partenaires certifiés."
+      }
+    },
+    "noQuestions": "Aucune question dans cette catégorie",
+    "stillHaveQuestions": "Vous avez encore des questions?",
+    "contactUs": "Notre équipe est là pour vous aider",
+    "contactButton": "Contactez-nous"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Restons en contact",
+    "description": "Une question? N'hésitez pas à nous contacter, nous vous répondrons dans les plus brefs délais",
+    "infoTitle": "Nos coordonnées",
+    "email": "Email",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "hours": "Horaires d'ouverture",
+    "followUs": "Suivez-nous",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+225 00 00 00 00",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Sélectionnez un sujet",
+      "subjects": {
+        "tickets": "Billetterie",
+        "event": "Informations sur l'événement",
+        "partnership": "Partenariat",
+        "other": "Autre"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Votre message...",
+      "submit": "Envoyer le message"
+    },
+    "successTitle": "Message envoyé!",
+    "successMessage": "Nous vous répondrons dans les plus brefs délais.",
+    "sendAnother": "Envoyer un autre message",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
+  "location": {
+    "title": "Lieu de l'événement",
+    "subtitle": "Comment nous trouver",
+    "description": "Retrouvez-nous à cette adresse pour vivre un moment inoubliable",
+    "eventTime": "Date et heure",
+    "doorsOpen": "Ouverture des portes",
+    "howToGet": "Comment s'y rendre",
+    "openInMaps": "Ouvrir dans Google Maps",
+    "venueAmenities": "Services sur place",
+    "access": {
+      "car": "En voiture",
+      "carDesc": "Parking gratuit disponible sur place",
+      "public": "Transports en commun",
+      "publicDesc": "Lignes de bus desservant le quartier",
+      "airport": "Depuis l'aéroport",
+      "airportDesc": "À 30 minutes en taxi de l'aéroport FHB"
+    },
+    "amenities": {
+      "parking": "Parking gratuit",
+      "accessible": "Accessible PMR",
+      "restaurant": "Restauration sur place",
+      "wifi": "WiFi gratuit"
+    }
+  },
+  "checkout": {
+    "backToEvent": "Retour à l'événement",
+    "steps": {
+      "1": "Panier",
+      "2": "Informations",
+      "3": "Paiement"
+    },
+    "reviewOrder": "Vérifiez votre commande",
+    "remove": "Supprimer",
+    "addDonation": "Ajouter un don",
+    "buyerInfo": "Vos informations",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "emailNote": "Les billets seront envoyés à cette adresse email",
+    "selectPayment": "Mode de paiement",
+    "payment": {
+      "mobile": "Mobile Money",
+      "mobileDesc": "Wave, Orange Money, MTN Money, Moov Money",
+      "card": "Carte bancaire",
+      "cardDesc": "Visa, Mastercard"
+    },
+    "selectProvider": "Sélectionnez votre opérateur",
+    "securePayment": "Vos informations de paiement sont sécurisées",
+    "summary": "Récapitulatif",
+    "subtotal": "Sous-total",
+    "serviceFee": "Frais de service",
+    "donation": "Don",
+    "total": "Total",
+    "back": "Retour",
+    "continue": "Continuer",
+    "pay": "Payer maintenant",
+    "processing": "Traitement en cours...",
+    "emptyCart": "Votre panier est vide",
+    "emptyCartDesc": "Ajoutez des billets pour continuer",
+    "browseTickets": "Voir les billets",
+    "errors": {
+      "emptyCart": "Votre panier est vide",
+      "fillRequired": "Veuillez remplir tous les champs obligatoires",
+      "invalidEmail": "Adresse email invalide",
+      "selectPayment": "Veuillez sélectionner un mode de paiement",
+      "selectProvider": "Veuillez sélectionner un opérateur",
+      "paymentFailed": "Le paiement a échoué. Veuillez réessayer."
+    }
+  },
+  "confirmation": {
+    "processing": "Traitement du paiement...",
+    "processingDesc": "Veuillez patienter pendant que nous traitons votre paiement",
+    "doNotClose": "Ne fermez pas cette page",
+    "success": "Réservation confirmée!",
+    "successDesc": "Merci pour votre achat. Vos billets sont prêts!",
+    "orderNumber": "Numéro de commande",
+    "yourTickets": "Vos billets",
+    "paymentSummary": "Récapitulatif du paiement",
+    "subtotal": "Sous-total",
+    "serviceFee": "Frais de service",
+    "donation": "Don",
+    "total": "Total",
+    "downloadTickets": "Télécharger les billets",
+    "backToHome": "Retour à l'accueil",
+    "emailSent": "Un email de confirmation a été envoyé à {{email}}",
+    "timeout": "Délai d'attente dépassé",
+    "error": "Erreur de paiement",
+    "errorDesc": "Une erreur est survenue lors du traitement de votre paiement",
+    "noTransaction": "Transaction non trouvée",
+    "paymentFailed": "Le paiement a échoué",
+    "checkAgain": "Vérifier à nouveau",
+    "tryAgain": "Réessayer"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions générales",
+    "followUs": "Suivez-nous"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "submit": "Soumettre",
+    "cancel": "Annuler"
+  }
+}

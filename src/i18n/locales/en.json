@@ -1,0 +1,298 @@
+{
+  "nav": {
+    "home": "Home",
+    "artists": "Artists",
+    "program": "Program",
+    "tickets": "Tickets",
+    "donate": "Donate",
+    "gallery": "Gallery",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "location": "Location"
+  },
+  "hero": {
+    "subtitle": "Christian Concert",
+    "defaultDescription": "Experience a unique spiritual moment with exceptional artists",
+    "buyTickets": "Book my tickets",
+    "seeProgram": "See program"
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "artists": {
+    "title": "Our Artists",
+    "subtitle": "Exceptional lineup",
+    "description": "Discover the exceptional artists who will make you live an unforgettable evening",
+    "viewMore": "View more",
+    "gallery": "Photo gallery",
+    "videos": "Videos",
+    "noArtists": "Artists will be announced soon"
+  },
+  "program": {
+    "title": "Program",
+    "subtitle": "Event schedule",
+    "description": "A program rich in emotions and moments of grace",
+    "day1": "Day 1",
+    "featured": "Highlight",
+    "noProgram": "Program coming soon"
+  },
+  "tickets": {
+    "title": "Tickets",
+    "subtitle": "Book your seats",
+    "description": "Book your seats and live a unique experience",
+    "available": "Available",
+    "soldOut": "Sold Out",
+    "popular": "Popular",
+    "inCart": "In cart",
+    "select": "Select",
+    "quantity": "Quantity",
+    "attendeeInfo": "Attendee information",
+    "attendee": "Attendee",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "total": "Total",
+    "addToCart": "Add to cart",
+    "fillAllFields": "Please fill in all fields",
+    "noTickets": "Tickets coming soon"
+  },
+  "donation": {
+    "title": "Support the event",
+    "subtitle": "Make a donation",
+    "description": "Your generosity helps us make this event possible and offer an unforgettable experience",
+    "yourContribution": "Your contribution helps",
+    "contribution": {
+      "1": "Contribute to the venue decoration",
+      "2": "Support sound and lighting",
+      "3": "Help welcome guests",
+      "4": "Participate in the concert success"
+    },
+    "donorInfo": "Your information",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "chooseAmount": "Choose an amount",
+    "customAmount": "Custom amount",
+    "add": "Add",
+    "minimumAmount": "Minimum amount: 1,000 FCFA",
+    "yourDonation": "Your donation",
+    "remove": "Remove donation",
+    "validate": "Validate my donation",
+    "paymentMethod": "Payment method",
+    "paymentTitle": "Make your donation",
+    "paymentDescription": "Send your donation via Mobile Money to the following number",
+    "donor": "Donor",
+    "amount": "Amount",
+    "instructions": "Instructions:",
+    "step1": "Open your Wave or Orange Money app",
+    "step2": "Send the amount to the number above",
+    "step3": "Enter your name as reference",
+    "confirmDonation": "I have made my donation",
+    "successTitle": "Donation registered!",
+    "successMessage": "Thank you for your generosity. Your donation has been successfully registered.",
+    "paymentReminder": "Don't forget to make your payment via Wave or Orange Money to the number below.",
+    "securePayment": "Secure payment. Your donation will be registered.",
+    "thankYou": "Thank you for your generosity!",
+    "errors": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required"
+    }
+  },
+  "gallery": {
+    "title": "Media Gallery",
+    "subtitle": "Photos and videos",
+    "description": "Relive the highlights of our previous events",
+    "photos": "Photos",
+    "videos": "Videos",
+    "noMedia": "No media available at the moment"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What they say",
+    "description": "Discover what participants of our events have to say"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Need help?",
+    "description": "Find answers to your most common questions",
+    "categories": {
+      "all": "All",
+      "tickets": "Tickets",
+      "event": "Event",
+      "payment": "Payment"
+    },
+    "items": {
+      "tickets": {
+        "q1": "How can I buy tickets?",
+        "a1": "You can buy your tickets directly on our website by selecting the desired ticket type and proceeding with secure payment.",
+        "q2": "Can I cancel or refund my ticket?",
+        "a2": "Tickets are non-refundable except in case of event cancellation. Contact us for more information."
+      },
+      "event": {
+        "q1": "What are the event hours?",
+        "a1": "Doors usually open 1 hour before the show starts. Check the program section for detailed schedules.",
+        "q2": "Is there a dress code?",
+        "a2": "There is no strict dress code, but smart casual attire is appreciated."
+      },
+      "payment": {
+        "q1": "What payment methods do you accept?",
+        "a1": "We accept Mobile Money payments (Wave, Orange Money, MTN, Moov) and credit cards (Visa, Mastercard).",
+        "q2": "Is the payment secure?",
+        "a2": "Yes, all payments are processed securely through our certified partners."
+      }
+    },
+    "noQuestions": "No questions in this category",
+    "stillHaveQuestions": "Still have questions?",
+    "contactUs": "Our team is here to help",
+    "contactButton": "Contact us"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch",
+    "description": "Have a question? Don't hesitate to contact us, we'll get back to you as soon as possible",
+    "infoTitle": "Contact information",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Opening hours",
+    "followUs": "Follow us",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+225 00 00 00 00",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select a subject",
+      "subjects": {
+        "tickets": "Tickets",
+        "event": "Event information",
+        "partnership": "Partnership",
+        "other": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "submit": "Send message"
+    },
+    "successTitle": "Message sent!",
+    "successMessage": "We'll get back to you as soon as possible.",
+    "sendAnother": "Send another message",
+    "error": "An error occurred. Please try again."
+  },
+  "location": {
+    "title": "Event Location",
+    "subtitle": "How to find us",
+    "description": "Join us at this address for an unforgettable experience",
+    "eventTime": "Date and time",
+    "doorsOpen": "Doors open",
+    "howToGet": "How to get there",
+    "openInMaps": "Open in Google Maps",
+    "venueAmenities": "On-site services",
+    "access": {
+      "car": "By car",
+      "carDesc": "Free parking available on site",
+      "public": "Public transport",
+      "publicDesc": "Bus lines serving the area",
+      "airport": "From the airport",
+      "airportDesc": "30 minutes by taxi from FHB Airport"
+    },
+    "amenities": {
+      "parking": "Free parking",
+      "accessible": "Wheelchair accessible",
+      "restaurant": "On-site catering",
+      "wifi": "Free WiFi"
+    }
+  },
+  "checkout": {
+    "backToEvent": "Back to event",
+    "steps": {
+      "1": "Cart",
+      "2": "Information",
+      "3": "Payment"
+    },
+    "reviewOrder": "Review your order",
+    "remove": "Remove",
+    "addDonation": "Add a donation",
+    "buyerInfo": "Your information",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "emailNote": "Tickets will be sent to this email address",
+    "selectPayment": "Payment method",
+    "payment": {
+      "mobile": "Mobile Money",
+      "mobileDesc": "Wave, Orange Money, MTN Money, Moov Money",
+      "card": "Credit Card",
+      "cardDesc": "Visa, Mastercard"
+    },
+    "selectProvider": "Select your provider",
+    "securePayment": "Your payment information is secure",
+    "summary": "Summary",
+    "subtotal": "Subtotal",
+    "serviceFee": "Service fee",
+    "donation": "Donation",
+    "total": "Total",
+    "back": "Back",
+    "continue": "Continue",
+    "pay": "Pay now",
+    "processing": "Processing...",
+    "emptyCart": "Your cart is empty",
+    "emptyCartDesc": "Add tickets to continue",
+    "browseTickets": "Browse tickets",
+    "errors": {
+      "emptyCart": "Your cart is empty",
+      "fillRequired": "Please fill in all required fields",
+      "invalidEmail": "Invalid email address",
+      "selectPayment": "Please select a payment method",
+      "selectProvider": "Please select a provider",
+      "paymentFailed": "Payment failed. Please try again."
+    }
+  },
+  "confirmation": {
+    "processing": "Processing payment...",
+    "processingDesc": "Please wait while we process your payment",
+    "doNotClose": "Do not close this page",
+    "success": "Booking confirmed!",
+    "successDesc": "Thank you for your purchase. Your tickets are ready!",
+    "orderNumber": "Order number",
+    "yourTickets": "Your tickets",
+    "paymentSummary": "Payment summary",
+    "subtotal": "Subtotal",
+    "serviceFee": "Service fee",
+    "donation": "Donation",
+    "total": "Total",
+    "downloadTickets": "Download tickets",
+    "backToHome": "Back to home",
+    "emailSent": "A confirmation email has been sent to {{email}}",
+    "timeout": "Timeout exceeded",
+    "error": "Payment error",
+    "errorDesc": "An error occurred while processing your payment",
+    "noTransaction": "Transaction not found",
+    "paymentFailed": "Payment failed",
+    "checkAgain": "Check again",
+    "tryAgain": "Try again"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy policy",
+    "terms": "Terms and conditions",
+    "followUs": "Follow us"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  }
+}

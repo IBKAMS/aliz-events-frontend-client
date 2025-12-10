@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_API_URL = "https://aliz-events.onrender.com/api/v1"
+  VITE_DEFAULT_EVENT_SLUG = "concert-gospel-2025"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
