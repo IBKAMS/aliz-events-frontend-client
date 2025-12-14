@@ -57,76 +57,76 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-2xl p-8 text-white">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">CONSTANCE GOSPEL ORGANISATION</h3>
-                <p className="text-white/80 text-sm">{t('contact.infoTitle')}</p>
+            <div className="bg-gradient-to-br from-primary-600 to-secondary-600 rounded-xl sm:rounded-2xl p-5 sm:p-8 text-white">
+              <div className="text-center mb-6 sm:mb-8">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">CONSTANCE GOSPEL ORGANISATION</h3>
+                <p className="text-white/80 text-xs sm:text-sm">{t('contact.infoTitle')}</p>
               </div>
 
               {/* Contact Details */}
-              <div className="grid md:grid-cols-2 gap-6 mb-10">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HiMail className="w-6 h-6" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 min-w-[40px] bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <HiMail className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <div>
-                    <p className="text-white/70 text-sm mb-1">{t('contact.email')}</p>
+                  <div className="min-w-0">
+                    <p className="text-white/70 text-xs sm:text-sm mb-1">{t('contact.email')}</p>
                     <a
                       href={`mailto:${contactInfo.email}`}
-                      className="text-lg hover:underline"
+                      className="text-sm sm:text-lg hover:underline break-all"
                     >
                       {contactInfo.email}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HiPhone className="w-6 h-6" />
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 min-w-[40px] bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <HiPhone className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm mb-1">{t('contact.phone')}</p>
+                    <p className="text-white/70 text-xs sm:text-sm mb-1">{t('contact.phone')}</p>
                     <a
                       href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-                      className="text-lg hover:underline"
+                      className="text-sm sm:text-lg hover:underline"
                     >
                       {contactInfo.phone}
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HiLocationMarker className="w-6 h-6" />
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 min-w-[40px] bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <HiLocationMarker className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm mb-1">{t('contact.address')}</p>
-                    <p className="text-lg">{contactInfo.address}</p>
+                    <p className="text-white/70 text-xs sm:text-sm mb-1">{t('contact.address')}</p>
+                    <p className="text-sm sm:text-lg">{contactInfo.address}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HiClock className="w-6 h-6" />
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 min-w-[40px] bg-white/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <HiClock className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <p className="text-white/70 text-sm mb-1">{t('contact.hours')}</p>
-                    <p className="text-lg">{contactInfo.hours}</p>
+                    <p className="text-white/70 text-xs sm:text-sm mb-1">{t('contact.hours')}</p>
+                    <p className="text-sm sm:text-lg">{contactInfo.hours}</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="text-center">
-                <p className="text-white/70 text-sm mb-4">{t('contact.followUs')}</p>
-                <div className="flex justify-center space-x-3">
+                <p className="text-white/70 text-xs sm:text-sm mb-3 sm:mb-4">{t('contact.followUs')}</p>
+                <div className="flex justify-center space-x-2 sm:space-x-3">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                      className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 active:bg-white/40 transition-colors"
                       aria-label={social.label}
                     >
                       <social.icon className="w-5 h-5" />

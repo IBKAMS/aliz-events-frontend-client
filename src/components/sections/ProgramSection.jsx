@@ -84,16 +84,16 @@ const ProgramSection = () => {
 
         {/* Day Tabs */}
         {days.length > 1 && (
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto px-2">
             <div className="inline-flex bg-white/10 rounded-xl p-1">
               {days.map((day, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedDay(index)}
-                  className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                  className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium transition-all text-sm sm:text-base min-h-[44px] whitespace-nowrap ${
                     selectedDay === index
                       ? 'bg-primary-600 text-white shadow-lg'
-                      : 'text-gray-300 hover:text-white'
+                      : 'text-gray-300 hover:text-white active:bg-white/10'
                   }`}
                 >
                   {day.label}
@@ -129,7 +129,7 @@ const ProgramSection = () => {
 
                 {/* Content Card */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-shadow">
+                  <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 hover:shadow-xl transition-shadow">
                     {/* Time (mobile) */}
                     <div className="md:hidden flex items-center gap-2 text-primary-600 font-medium mb-3">
                       <HiClock className="w-5 h-5" />

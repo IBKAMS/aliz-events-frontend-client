@@ -159,16 +159,16 @@ const Navbar = () => {
               )}
             </Link>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Touch target optimisé (min 44x44px) */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
+              className={`lg:hidden p-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg transition-colors ${
                 shouldUseDarkTheme
-                  ? 'text-gray-700 hover:bg-gray-100'
-                  : 'text-white hover:bg-white/20'
+                  ? 'text-gray-700 hover:bg-gray-100 active:bg-gray-200'
+                  : 'text-white hover:bg-white/20 active:bg-white/30'
               }`}
             >
-              {isOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
+              {isOpen ? <HiX className="w-7 h-7" /> : <HiMenu className="w-7 h-7" />}
             </button>
           </div>
         </div>
@@ -183,7 +183,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white shadow-xl"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-6 space-y-2">
               {navItems.map((item) => (
                 <a
                   key={item.key}
@@ -194,21 +194,21 @@ const Navbar = () => {
                       handleNavClick(item.path);
                     }
                   }}
-                  className="block px-4 py-3 text-gray-700 font-medium rounded-lg hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                  className="block px-5 py-4 min-h-[48px] text-gray-700 text-base font-medium rounded-xl hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
-              <div className="pt-4 border-t">
+              <div className="pt-4 mt-4 border-t">
                 <Link
                   to="/#donation"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick('/#donation');
                   }}
-                  className="flex items-center justify-center space-x-2 w-full px-4 py-3 bg-accent-500 text-white font-medium rounded-lg hover:bg-accent-600 transition-colors"
+                  className="flex items-center justify-center space-x-2 w-full px-5 py-4 min-h-[52px] bg-accent-500 text-white text-lg font-bold rounded-xl hover:bg-accent-600 active:bg-accent-700 transition-colors shadow-lg"
                 >
-                  <HiHeart className="w-5 h-5" />
+                  <HiHeart className="w-6 h-6" />
                   <span>{t('nav.donate')}</span>
                 </Link>
               </div>

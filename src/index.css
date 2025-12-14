@@ -99,12 +99,46 @@
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fullpage-section > section {
   min-height: 100vh;
-  height: 100vh;
-  overflow-y: auto;
+  height: auto;
+  overflow-y: visible;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .fullpage-container {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .fullpage-section {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .fullpage-section > section {
+    min-height: auto;
+    height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Fix for mobile viewport height issues */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  html.fullpage-mode,
+  html.fullpage-mode body {
+    overflow: auto;
+    height: auto;
+  }
 }
 
 @layer components {
@@ -159,6 +193,203 @@
   }
 }
 
+/* Mobile text overflow fixes */
+@media (max-width: 768px) {
+  /* CRITICAL: Prevent text overflow on all mobile devices */
+  h1, h2, h3, h4, h5, h6, p, span, a, button, label, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Container overflow fix */
+  .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl, .max-w-xl, .max-w-lg, .max-w-md {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Better padding for mobile sections */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+  }
+
+  /* Ensure images don't overflow and display properly */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Fix countdown grid on mobile */
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.25rem;
+  }
+
+  /* Ensure buttons wrap properly */
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  /* Fix for flex containers */
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  /* Grid fixes for mobile */
+  .grid {
+    gap: 0.75rem;
+  }
+}
+
+/* Specific fixes for screens 640px and below */
+@media (max-width: 640px) {
+  /* Text sizing adjustments */
+  .text-4xl {
+    font-size: 1.75rem !important;
+    line-height: 2rem !important;
+  }
+
+  .text-5xl {
+    font-size: 2rem !important;
+    line-height: 2.25rem !important;
+  }
+
+  .text-6xl {
+    font-size: 2.25rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .text-3xl {
+    font-size: 1.5rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  /* Form inputs should be full width */
+  input, select, textarea {
+    max-width: 100%;
+  }
+
+  /* Badge text should not overflow */
+  .rounded-full {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: 100%;
+  }
+
+  /* Card and modal fixes */
+  .rounded-2xl, .rounded-3xl {
+    padding: 1rem;
+  }
+
+  /* Fix button sizes */
+  button {
+    min-height: 44px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Extra small screens (< 380px) - Critical fixes for very small phones */
+@media (max-width: 380px) {
+  /* Smaller text sizes for tiny screens */
+  .text-2xl {
+    font-size: 1.25rem !important;
+    line-height: 1.5rem !important;
+  }
+
+  .text-3xl {
+    font-size: 1.375rem !important;
+    line-height: 1.625rem !important;
+  }
+
+  .text-4xl {
+    font-size: 1.5rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  .text-5xl, .text-6xl {
+    font-size: 1.75rem !important;
+    line-height: 2rem !important;
+  }
+
+  /* Reduced padding for very small screens */
+  .px-4, .px-6, .px-8 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  .py-12, .py-16, .py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Smaller gaps */
+  .gap-4, .gap-6, .gap-8 {
+    gap: 0.5rem !important;
+  }
+
+  /* Stack grid items vertically when needed */
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* Ensure countdown fits */
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(40px, 1fr)) !important;
+    gap: 0.25rem !important;
+  }
+
+  /* Buttons more compact */
+  button, .btn-primary, .btn-secondary {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Images scale properly */
+  img {
+    max-width: 100% !important;
+    object-fit: cover;
+  }
+
+  /* Modal and card fixes */
+  .rounded-2xl, .rounded-3xl {
+    border-radius: 1rem !important;
+    margin: 0.5rem !important;
+  }
+}
+
+/* Specific fixes for iPhone SE and similar (320px width) */
+@media (max-width: 320px) {
+  .text-xl {
+    font-size: 1rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.125rem !important;
+  }
+
+  .text-3xl, .text-4xl, .text-5xl, .text-6xl {
+    font-size: 1.25rem !important;
+    line-height: 1.5rem !important;
+  }
+
+  section {
+    padding: 1rem 0.5rem !important;
+  }
+
+  .grid-cols-2, .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(35px, 1fr)) !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -186,4 +417,122 @@
 .swiper-pagination-bullet-active {
   background: #8B2D5B;
   opacity: 1;
+}
+
+/* ============================================
+   CRITICAL MOBILE TEXT FIXES - NO TRUNCATION
+   ============================================ */
+
+/* Force all text to display completely - NEVER truncate */
+@media (max-width: 768px) {
+  /* AGGRESSIVE: Remove ALL line-clamp restrictions on mobile */
+  .line-clamp-1, .line-clamp-2, .line-clamp-3, .line-clamp-4, .line-clamp-5, .line-clamp-6,
+  [class*="line-clamp"] {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  /* Remove truncation ellipsis */
+  .truncate, [class*="truncate"] {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+  }
+
+  /* Ensure all paragraphs and headings show fully */
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, li, label,
+  .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-height: none !important;
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+  }
+
+  /* Hero section specific fixes */
+  #home h1,
+  #home p,
+  #home span,
+  [id="home"] h1,
+  [id="home"] p,
+  [id="home"] span {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    -webkit-line-clamp: unset !important;
+    max-height: none !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Card and modal text fixes */
+  .card p, .card h3, .card h4,
+  [class*="card"] p, [class*="card"] h3, [class*="card"] h4 {
+    overflow: visible !important;
+    white-space: normal !important;
+    -webkit-line-clamp: unset !important;
+  }
+
+  /* Section titles and subtitles */
+  .section-title, .section-subtitle,
+  [class*="title"], [class*="subtitle"],
+  [class*="heading"], [class*="description"] {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    -webkit-line-clamp: unset !important;
+    max-height: none !important;
+  }
+
+  /* Button text should never be cut */
+  button, a.btn, [class*="btn"] {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+  /* Fix text that might overflow containers */
+  .max-w-2xl, .max-w-3xl, .max-w-4xl, .max-w-5xl, .max-w-6xl, .max-w-7xl {
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Ensure taglines and descriptions show fully */
+  .text-accent-400, .text-gray-300, .text-gray-400, .text-gray-600 {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: normal !important;
+    -webkit-line-clamp: unset !important;
+  }
+}
+
+/* Extra aggressive fixes for very small screens */
+@media (max-width: 480px) {
+  /* Force EVERYTHING to show - no exceptions */
+  * {
+    text-overflow: clip !important;
+    -webkit-line-clamp: unset !important;
+  }
+
+  /* Remove any max-height that could hide content */
+  p, h1, h2, h3, h4, h5, h6, span, div {
+    max-height: none !important;
+  }
+
+  /* Hero description specifically */
+  #home .text-base,
+  #home .text-lg,
+  #home .text-gray-300 {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
 }

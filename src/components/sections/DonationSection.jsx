@@ -140,7 +140,7 @@ const DonationSection = () => {
   };
 
   return (
-    <section id="donation" className="py-20 bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 relative overflow-hidden">
+    <section id="donation" className="py-12 sm:py-20 bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 relative overflow-hidden">
       {/* Decorative Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
@@ -148,7 +148,7 @@ const DonationSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 items-center">
           {/* Left - Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -169,7 +169,7 @@ const DonationSection = () => {
 
           {/* Right - Donation Form */}
           <motion.div
-            className="bg-white rounded-2xl p-8 shadow-xl"
+            className="bg-white rounded-2xl p-4 sm:p-8 shadow-xl"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -219,20 +219,20 @@ const DonationSection = () => {
             </div>
 
             {/* Preset Amounts - Animated Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6">
               {presetAmounts.map((preset, index) => (
                 <motion.button
                   key={preset.value}
                   onClick={() => handlePresetSelect(preset.value)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center overflow-hidden group ${
+                  className={`relative p-2 sm:p-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-300 flex flex-col items-center overflow-hidden group min-h-[80px] sm:min-h-[100px] ${
                     selectedPreset === preset.value || currentAmount === preset.value
                       ? `${preset.border} ${preset.bg} shadow-lg`
-                      : 'border-gray-200 hover:border-gray-300 bg-white hover:shadow-md'
+                      : 'border-gray-200 hover:border-gray-300 bg-white hover:shadow-md active:bg-gray-50'
                   }`}
                 >
                   {/* Popular Badge */}
@@ -248,13 +248,13 @@ const DonationSection = () => {
                   }`} />
 
                   {/* Icon with animated background */}
-                  <div className={`relative w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-all duration-300 ${
+                  <div className={`relative w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-1 sm:mb-2 transition-all duration-300 ${
                     selectedPreset === preset.value || currentAmount === preset.value
                       ? `bg-gradient-to-br ${preset.color} shadow-md`
                       : `${preset.bg} group-hover:scale-110`
                   }`}>
                     <preset.icon
-                      className={`w-6 h-6 transition-colors duration-300 ${
+                      className={`w-4 h-4 sm:w-6 sm:h-6 transition-colors duration-300 ${
                         selectedPreset === preset.value || currentAmount === preset.value
                           ? 'text-white'
                           : preset.text
@@ -264,7 +264,7 @@ const DonationSection = () => {
 
                   {/* Amount Label */}
                   <span
-                    className={`font-bold text-sm transition-colors duration-300 ${
+                    className={`font-bold text-[10px] sm:text-sm transition-colors duration-300 text-center leading-tight ${
                       selectedPreset === preset.value || currentAmount === preset.value
                         ? preset.text
                         : 'text-gray-700'
@@ -278,9 +278,9 @@ const DonationSection = () => {
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className={`absolute top-2 left-2 w-5 h-5 rounded-full bg-gradient-to-br ${preset.color} flex items-center justify-center`}
+                      className={`absolute top-1 left-1 sm:top-2 sm:left-2 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br ${preset.color} flex items-center justify-center`}
                     >
-                      <HiCheck className="w-3 h-3 text-white" />
+                      <HiCheck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                     </motion.div>
                   )}
                 </motion.button>
@@ -338,9 +338,9 @@ const DonationSection = () => {
             <button
               onClick={handleValidate}
               disabled={!isFormValid}
-              className={`w-full py-4 rounded-xl font-semibold text-lg transition-all ${
+              className={`w-full py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all min-h-[48px] ${
                 isFormValid
-                  ? 'bg-primary-600 text-white hover:bg-primary-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
+                  ? 'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
                   : 'bg-gray-200 text-gray-500 cursor-not-allowed'
               }`}
             >
@@ -376,7 +376,7 @@ const DonationSection = () => {
             onClick={closeModal}
           >
             <motion.div
-              className="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}

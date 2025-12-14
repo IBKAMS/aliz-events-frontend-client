@@ -83,15 +83,15 @@ const FAQSection = () => {
         </motion.div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 px-2">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-3 sm:px-4 py-2.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all min-h-[40px] ${
                 activeCategory === category.id
                   ? 'bg-primary-600 text-white'
-                  : 'bg-white/10 text-gray-300 hover:bg-white/20'
+                  : 'bg-white/10 text-gray-300 hover:bg-white/20 active:bg-white/30'
               }`}
             >
               {category.label}
@@ -112,11 +112,11 @@ const FAQSection = () => {
             >
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left hover:bg-gray-50 active:bg-gray-100 transition-colors min-h-[56px]"
               >
                 <div className="flex items-start">
-                  <HiQuestionMarkCircle className="w-6 h-6 text-primary-500 mr-3 flex-shrink-0 mt-0.5" />
-                  <span className="font-medium text-gray-900 pr-4">
+                  <HiQuestionMarkCircle className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium text-gray-900 pr-2 sm:pr-4 text-sm sm:text-base">
                     {faq.question}
                   </span>
                 </div>
@@ -135,8 +135,8 @@ const FAQSection = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-5 pl-15">
-                      <div className="pl-9 text-gray-600 leading-relaxed">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-5">
+                      <div className="pl-7 sm:pl-9 text-gray-600 leading-relaxed text-sm sm:text-base">
                         {faq.answer}
                       </div>
                     </div>

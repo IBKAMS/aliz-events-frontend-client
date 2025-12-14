@@ -215,7 +215,7 @@ const ArtistSection = () => {
   };
 
   return (
-    <section id="artist" className="min-h-screen bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 overflow-hidden">
+    <section id="artist" className="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900">
       {/* Hero Section - L'Artiste avec image illuminée */}
       <div className="relative py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -236,73 +236,38 @@ const ArtistSection = () => {
               <HiSparkles className="w-4 h-4 mr-2 text-secondary-400" />
               L'ARTISTE
             </motion.span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
               Découvrez {artist.name}
             </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left - Artist Image with Elegant Glow Effect */}
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+            {/* Artist Image - Simplifié pour mobile */}
             <motion.div
-              className="relative flex justify-center"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="flex justify-center order-first lg:order-none mb-8 lg:mb-0"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
             >
-              {/* Elegant illumination container */}
-              <div className="relative -mt-16">
-                {/* Soft outer glow - elegant purple/gold blend */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-primary-500/40 via-secondary-500/30 to-accent-500/40 rounded-3xl blur-2xl animate-artist-soft-glow" />
+              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
+                {/* Glow effect - hidden on very small screens for performance */}
+                <div className="hidden sm:block absolute -inset-4 bg-gradient-to-br from-primary-500/30 to-secondary-500/30 rounded-3xl blur-2xl" />
 
-                {/* Animated gradient border */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary-400 via-secondary-400 via-accent-400 to-primary-400 rounded-2xl animate-artist-gradient opacity-70" />
-
-                {/* Inner glow ring */}
-                <div className="absolute -inset-0.5 bg-gradient-to-b from-white/20 via-transparent to-white/10 rounded-2xl" />
-
-                {/* Image container */}
-                <div className="relative bg-primary-900 rounded-2xl p-1 z-10">
-                  <div className="relative w-80 h-96 md:w-96 md:h-[28rem] rounded-xl overflow-hidden shadow-2xl">
-                    <img
-                      src={artist.image}
-                      alt={artist.name}
-                      className="w-full h-full object-cover object-top"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = '/images/placeholder-artist.jpg';
-                      }}
-                    />
-                  </div>
+                {/* Image wrapper with border */}
+                <div className="relative bg-gradient-to-br from-primary-400 to-secondary-500 p-1 rounded-2xl">
+                  <img
+                    src={artist.image}
+                    alt={artist.name}
+                    className="w-full h-auto rounded-xl shadow-2xl"
+                    style={{ minHeight: '300px', objectFit: 'cover', objectPosition: 'top' }}
+                    loading="eager"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/placeholder-artist.jpg';
+                    }}
+                  />
                 </div>
-
-                {/* Subtle corner accents */}
-                <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-accent-400/60 rounded-tl-lg" />
-                <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-accent-400/60 rounded-tr-lg" />
-                <div className="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-accent-400/60 rounded-bl-lg" />
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-accent-400/60 rounded-br-lg" />
-
-                {/* Floating light dots */}
-                <motion.div
-                  className="absolute -top-3 left-1/2 w-2 h-2 bg-accent-400 rounded-full shadow-lg shadow-accent-400/50"
-                  animate={{ y: [-3, 3, -3], opacity: [0.6, 1, 0.6] }}
-                  transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-                />
-                <motion.div
-                  className="absolute top-1/2 -right-3 w-2 h-2 bg-secondary-400 rounded-full shadow-lg shadow-secondary-400/50"
-                  animate={{ x: [-3, 3, -3], opacity: [0.6, 1, 0.6] }}
-                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.5 }}
-                />
-                <motion.div
-                  className="absolute -bottom-3 left-1/2 w-2 h-2 bg-primary-300 rounded-full shadow-lg shadow-primary-300/50"
-                  animate={{ y: [3, -3, 3], opacity: [0.6, 1, 0.6] }}
-                  transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut", delay: 1 }}
-                />
-                <motion.div
-                  className="absolute top-1/2 -left-3 w-2 h-2 bg-accent-300 rounded-full shadow-lg shadow-accent-300/50"
-                  animate={{ x: [3, -3, 3], opacity: [0.6, 1, 0.6] }}
-                  transition={{ repeat: Infinity, duration: 3.2, ease: "easeInOut", delay: 0.8 }}
-                />
               </div>
             </motion.div>
 
@@ -315,7 +280,7 @@ const ArtistSection = () => {
             >
               {/* Name with animated gradient */}
               <motion.h1
-                className="text-4xl md:text-5xl font-display font-bold mb-4"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-2 sm:mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -328,7 +293,7 @@ const ArtistSection = () => {
 
               {/* Title */}
               <motion.p
-                className="text-lg md:text-xl text-primary-200 font-medium mb-6"
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-200 font-medium mb-3 sm:mb-6"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -339,7 +304,7 @@ const ArtistSection = () => {
 
               {/* Tagline */}
               <motion.p
-                className="text-lg text-white/80 italic mb-6 border-l-4 border-secondary-500 pl-4"
+                className="text-sm sm:text-base lg:text-lg text-white/80 italic mb-3 sm:mb-6 border-l-4 border-secondary-500 pl-3 sm:pl-4"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -350,7 +315,7 @@ const ArtistSection = () => {
 
               {/* Bio */}
               <motion.p
-                className="text-white/70 leading-relaxed mb-8"
+                className="text-sm sm:text-base text-white/70 leading-relaxed mb-4 sm:mb-8"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -361,7 +326,7 @@ const ArtistSection = () => {
 
               {/* Achievements Grid */}
               <motion.div
-                className="grid grid-cols-2 gap-4 mb-8"
+                className="grid grid-cols-2 gap-2 sm:gap-4 mb-6 sm:mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -370,35 +335,35 @@ const ArtistSection = () => {
                 {artist.achievements.map((achievement, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center hover:bg-white/10 transition-all group"
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-3 sm:p-4 text-center hover:bg-white/10 active:bg-white/15 transition-all group"
                     whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <div className="w-10 h-10 mx-auto mb-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 sm:mb-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                       {getAchievementIcon(achievement.icon)}
                     </div>
-                    <p className="text-xl font-bold text-white">{achievement.value}</p>
-                    <p className="text-white/60 text-xs">{achievement.label}</p>
+                    <p className="text-lg sm:text-xl font-bold text-white">{achievement.value}</p>
+                    <p className="text-white/60 text-[10px] sm:text-xs">{achievement.label}</p>
                   </motion.div>
                 ))}
               </motion.div>
 
               {/* Social Links */}
               <motion.div
-                className="flex items-center space-x-3"
+                className="flex flex-wrap items-center gap-2 sm:space-x-3"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.8 }}
               >
-                <span className="text-white/60 text-sm mr-2">Suivez-la:</span>
+                <span className="text-white/60 text-sm mr-1 sm:mr-2 w-full sm:w-auto mb-2 sm:mb-0">Suivez-la:</span>
                 {socialLinks.facebook && (
                   <a
                     href={socialLinks.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all hover:scale-110"
+                    className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-blue-600 active:bg-blue-700 transition-all hover:scale-110"
                   >
-                    <FaFacebookF className="w-4 h-4" />
+                    <FaFacebookF className="w-5 h-5 sm:w-4 sm:h-4" />
                   </a>
                 )}
                 {socialLinks.instagram && (
@@ -406,9 +371,9 @@ const ArtistSection = () => {
                     href={socialLinks.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 transition-all hover:scale-110"
+                    className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 active:from-purple-600 active:to-pink-600 transition-all hover:scale-110"
                   >
-                    <FaInstagram className="w-4 h-4" />
+                    <FaInstagram className="w-5 h-5 sm:w-4 sm:h-4" />
                   </a>
                 )}
                 {socialLinks.youtube && (
@@ -416,9 +381,9 @@ const ArtistSection = () => {
                     href={socialLinks.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-600 transition-all hover:scale-110"
+                    className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-red-600 active:bg-red-700 transition-all hover:scale-110"
                   >
-                    <FaYoutube className="w-4 h-4" />
+                    <FaYoutube className="w-5 h-5 sm:w-4 sm:h-4" />
                   </a>
                 )}
                 {socialLinks.spotify && (
@@ -426,9 +391,9 @@ const ArtistSection = () => {
                     href={socialLinks.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-green-500 transition-all hover:scale-110"
+                    className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-green-500 active:bg-green-600 transition-all hover:scale-110"
                   >
-                    <FaSpotify className="w-4 h-4" />
+                    <FaSpotify className="w-5 h-5 sm:w-4 sm:h-4" />
                   </a>
                 )}
                 {socialLinks.tiktok && (
@@ -436,9 +401,9 @@ const ArtistSection = () => {
                     href={socialLinks.tiktok}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black transition-all hover:scale-110"
+                    className="w-11 h-11 sm:w-10 sm:h-10 min-w-[44px] min-h-[44px] bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black active:bg-gray-900 transition-all hover:scale-110"
                   >
-                    <FaTiktok className="w-4 h-4" />
+                    <FaTiktok className="w-5 h-5 sm:w-4 sm:h-4" />
                   </a>
                 )}
               </motion.div>
@@ -449,14 +414,14 @@ const ArtistSection = () => {
 
       {/* Quote Section */}
       <motion.div
-        className="py-16 bg-gradient-to-r from-primary-600 to-secondary-700"
+        className="py-10 sm:py-16 bg-gradient-to-r from-primary-600 to-secondary-700"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div
-            className="text-6xl text-primary-300 mb-6"
+            className="text-4xl sm:text-6xl text-primary-300 mb-3 sm:mb-6"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -464,7 +429,7 @@ const ArtistSection = () => {
             "
           </motion.div>
           <motion.p
-            className="text-2xl md:text-3xl text-white font-light italic leading-relaxed"
+            className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white font-light italic leading-relaxed px-2 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -497,10 +462,10 @@ const ArtistSection = () => {
               <HiMusicNote className="w-4 h-4 inline mr-2" />
               DISCOGRAPHIE
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-2 sm:mb-4">
               L'Évolution Musicale
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-2 sm:px-0">
               Un voyage à travers les années, album après album
             </p>
           </motion.div>
@@ -510,12 +475,12 @@ const ArtistSection = () => {
             {/* Timeline Line */}
             <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 rounded-full" />
 
-            {/* Albums */}
-            <div className="relative flex justify-between items-center overflow-x-auto pb-4 hide-scrollbar">
+            {/* Albums - Scroll visible sur mobile pour indiquer navigation */}
+            <div className="relative flex justify-start sm:justify-between items-center overflow-x-auto pb-4 sm:pb-4 scrollbar-thin scrollbar-thumb-primary-500 scrollbar-track-primary-800 snap-x snap-mandatory">
               {albums.map((album, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0 flex flex-col items-center px-4 cursor-pointer group"
+                  className="flex-shrink-0 flex flex-col items-center px-3 sm:px-4 cursor-pointer group snap-center"
                   initial={{ opacity: 0, y: isTimelineInView ? 0 : 50 }}
                   animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -541,8 +506,8 @@ const ArtistSection = () => {
 
                   {/* Album Cover */}
                   <motion.div
-                    className={`relative w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden shadow-2xl transition-all ${
-                      activeAlbum === index ? 'scale-110 ring-4 ring-primary-500' : 'opacity-70 group-hover:opacity-100'
+                    className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg sm:rounded-xl overflow-hidden shadow-2xl transition-all ${
+                      activeAlbum === index ? 'scale-105 sm:scale-110 ring-2 sm:ring-4 ring-primary-500' : 'opacity-70 group-hover:opacity-100'
                     }`}
                     whileHover={{ scale: 1.1 }}
                   >
@@ -550,13 +515,14 @@ const ArtistSection = () => {
                       src={album.cover}
                       alt={album.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.style.display = 'none';
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <p className="absolute bottom-2 left-2 right-2 text-white text-xs font-medium truncate">
+                    <p className="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 right-1 sm:right-2 text-white text-[10px] sm:text-xs font-medium truncate">
                       {album.title}
                     </p>
                   </motion.div>
@@ -568,13 +534,13 @@ const ArtistSection = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeAlbum}
-                className="mt-12 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
+                className="mt-8 sm:mt-12 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
                   {/* Album Cover Large */}
                   <motion.div
                     className="relative aspect-square max-w-md mx-auto"
@@ -599,7 +565,7 @@ const ArtistSection = () => {
                   {/* Album Info */}
                   <div>
                     <motion.h3
-                      className="text-3xl font-bold text-white mb-4"
+                      className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-4"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 }}
@@ -607,7 +573,7 @@ const ArtistSection = () => {
                       {albums[activeAlbum].title}
                     </motion.h3>
                     <motion.p
-                      className="text-gray-300 text-lg mb-6"
+                      className="text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6"
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.3 }}

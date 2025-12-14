@@ -130,7 +130,7 @@ const TicketsSection = () => {
 
         {/* TIKERAMA Banner with QR Code */}
         <motion.div
-          className="bg-accent-500 rounded-2xl p-8 shadow-2xl"
+          className="bg-accent-500 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -148,7 +148,7 @@ const TicketsSection = () => {
                 <img
                   src="/images/qr-code-constance.png"
                   alt="QR Code - Réserver sur TIKERAMA.COM"
-                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
+                  className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain"
                 />
               </a>
               <p className="text-center text-primary-900 font-bold mt-4 text-lg">
@@ -158,17 +158,17 @@ const TicketsSection = () => {
 
             {/* Right - Text Content */}
             <div className="text-center lg:text-left flex-1">
-              <h3 className="text-2xl md:text-3xl font-bold text-primary-900 mb-2">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-primary-900 mb-2">
                 TICKETS DISPONIBLES SUR
               </h3>
               <a
                 href={TIKERAMA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-3xl md:text-4xl font-display font-bold text-primary-900 hover:text-primary-700 transition-colors"
+                className="inline-flex items-center text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold text-primary-900 hover:text-primary-700 transition-colors break-words"
               >
                 TIKERAMA.COM
-                <HiExternalLink className="w-8 h-8 ml-2" />
+                <HiExternalLink className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 ml-2 flex-shrink-0" />
               </a>
               <p className="text-primary-800 mt-4 text-lg">
                 Scannez le QR code ou cliquez pour réserver vos places

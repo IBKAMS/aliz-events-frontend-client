@@ -107,21 +107,21 @@ const GallerySection = () => {
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-8 sm:mb-12">
           <div className="inline-flex bg-white/10 rounded-xl p-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all flex items-center space-x-2 ${
+                className={`px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-medium transition-all flex items-center space-x-1.5 sm:space-x-2 min-h-[44px] ${
                   activeTab === tab.id
                     ? 'bg-white text-primary-600 shadow-md'
-                    : 'text-gray-300 hover:text-white'
+                    : 'text-gray-300 hover:text-white active:bg-white/10'
                 }`}
               >
-                <span>{tab.label}</span>
+                <span className="text-sm sm:text-base">{tab.label}</span>
                 <span
-                  className={`px-2 py-0.5 rounded-full text-xs ${
+                  className={`px-1.5 sm:px-2 py-0.5 rounded-full text-[10px] sm:text-xs ${
                     activeTab === tab.id ? 'bg-primary-100 text-primary-600' : 'bg-gray-200'
                   }`}
                 >
@@ -135,7 +135,7 @@ const GallerySection = () => {
         {/* Photos Grid */}
         {activeTab === 'photos' && (
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -143,7 +143,7 @@ const GallerySection = () => {
             {photos.map((photo, index) => (
               <motion.div
                 key={photo._id || index}
-                className={`relative group cursor-pointer overflow-hidden rounded-xl ${
+                className={`relative group cursor-pointer overflow-hidden rounded-lg sm:rounded-xl ${
                   index === 0 ? 'col-span-2 row-span-2' : ''
                 }`}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -155,18 +155,19 @@ const GallerySection = () => {
                 <img
                   src={photo.url || photo}
                   alt={photo.caption || `Photo ${index + 1}`}
+                  loading="lazy"
                   className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-                    index === 0 ? 'h-full min-h-[400px]' : 'h-48 md:h-56'
+                    index === 0 ? 'h-full min-h-[200px] sm:min-h-[400px]' : 'h-32 sm:h-48 md:h-56'
                   }`}
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
-                    <HiPhotograph className="w-6 h-6 text-gray-900" />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 sm:transition-opacity flex items-center justify-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/90 rounded-full flex items-center justify-center">
+                    <HiPhotograph className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900" />
                   </div>
                 </div>
                 {photo.caption && (
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="text-white text-sm">{photo.caption}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="text-white text-xs sm:text-sm">{photo.caption}</p>
                   </div>
                 )}
               </motion.div>
@@ -177,7 +178,7 @@ const GallerySection = () => {
         {/* Videos Grid */}
         {activeTab === 'videos' && (
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
@@ -185,7 +186,7 @@ const GallerySection = () => {
             {videos.map((video, index) => (
               <motion.div
                 key={video._id || index}
-                className="relative group cursor-pointer overflow-hidden rounded-xl bg-gray-900"
+                className="relative group cursor-pointer overflow-hidden rounded-lg sm:rounded-xl bg-gray-900"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -245,7 +246,7 @@ const GallerySection = () => {
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] min-h-[44px] bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 active:bg-white/30 transition-colors"
             >
               <HiX className="w-6 h-6 text-white" />
             </button>
@@ -253,13 +254,13 @@ const GallerySection = () => {
             {/* Navigation */}
             <button
               onClick={() => navigateLightbox(-1)}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] min-h-[44px] bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 active:bg-white/30 transition-colors"
             >
               <HiChevronLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={() => navigateLightbox(1)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 min-w-[44px] min-h-[44px] bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 active:bg-white/30 transition-colors"
             >
               <HiChevronRight className="w-6 h-6 text-white" />
             </button>

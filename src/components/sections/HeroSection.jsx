@@ -108,7 +108,7 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 lg:pt-28"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-8"
     >
       {/* Background with violet gradient */}
       <div
@@ -151,17 +151,17 @@ const HeroSection = () => {
       </div>
 
       {/* Content - Two Column Layout */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
 
           {/* Left Column - Photo de Constance avec bordure illuminée */}
           <motion.div
-            className="order-2 lg:order-1 flex justify-center lg:justify-start"
+            className="order-1 lg:order-1 flex justify-center lg:justify-start overflow-hidden"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative">
+            <div className="relative mx-auto lg:mx-0">
               {/* Outer glow pulsing effect */}
               <div className="absolute -inset-3 bg-gradient-to-r from-accent-400 via-primary-400 to-accent-400 rounded-3xl blur-xl opacity-60 animate-hero-glow" />
 
@@ -178,13 +178,13 @@ const HeroSection = () => {
                 <img
                   src="/images/constance.png"
                   alt="Chantre Constance"
-                  className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain drop-shadow-2xl rounded-2xl"
+                  className="relative w-full max-w-[180px] xs:max-w-[220px] sm:max-w-[280px] md:max-w-sm lg:max-w-md xl:max-w-lg h-auto object-contain drop-shadow-2xl rounded-2xl"
                 />
               </div>
 
-              {/* Animated sparkles around the image */}
+              {/* Animated sparkles around the image - hidden on very small screens */}
               <motion.div
-                className="absolute -top-6 -right-6 text-accent-400 z-20"
+                className="absolute -top-3 -right-3 sm:-top-6 sm:-right-6 text-accent-400 z-20 hidden xs:block"
                 animate={{
                   scale: [1, 1.4, 1],
                   rotate: [0, 180, 360],
@@ -192,10 +192,10 @@ const HeroSection = () => {
                 }}
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
               >
-                <HiSparkles className="w-10 h-10 drop-shadow-lg" />
+                <HiSparkles className="w-6 h-6 sm:w-10 sm:h-10 drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -bottom-4 -left-6 text-primary-300 z-20"
+                className="absolute -bottom-2 -left-3 sm:-bottom-4 sm:-left-6 text-primary-300 z-20 hidden xs:block"
                 animate={{
                   scale: [1, 1.3, 1],
                   rotate: [0, -180, -360],
@@ -203,10 +203,10 @@ const HeroSection = () => {
                 }}
                 transition={{ repeat: Infinity, duration: 3, delay: 0.5, ease: "easeInOut" }}
               >
-                <HiSparkles className="w-8 h-8 drop-shadow-lg" />
+                <HiSparkles className="w-5 h-5 sm:w-8 sm:h-8 drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute top-1/4 -left-8 text-accent-300 z-20"
+                className="absolute top-1/4 -left-4 sm:-left-8 text-accent-300 z-20 hidden sm:block"
                 animate={{
                   scale: [1, 1.2, 1],
                   rotate: [0, 90, 180],
@@ -214,10 +214,10 @@ const HeroSection = () => {
                 }}
                 transition={{ repeat: Infinity, duration: 2, delay: 1, ease: "easeInOut" }}
               >
-                <HiSparkles className="w-6 h-6 drop-shadow-lg" />
+                <HiSparkles className="w-4 h-4 sm:w-6 sm:h-6 drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute top-1/3 -right-8 text-white z-20"
+                className="absolute top-1/3 -right-4 sm:-right-8 text-white z-20 hidden sm:block"
                 animate={{
                   scale: [1, 1.5, 1],
                   rotate: [0, 270, 540],
@@ -225,10 +225,10 @@ const HeroSection = () => {
                 }}
                 transition={{ repeat: Infinity, duration: 3.5, delay: 0.8, ease: "easeInOut" }}
               >
-                <HiSparkles className="w-7 h-7 drop-shadow-lg" />
+                <HiSparkles className="w-5 h-5 sm:w-7 sm:h-7 drop-shadow-lg" />
               </motion.div>
               <motion.div
-                className="absolute -bottom-6 right-1/4 text-accent-500 z-20"
+                className="absolute -bottom-3 right-1/4 sm:-bottom-6 text-accent-500 z-20 hidden xs:block"
                 animate={{
                   scale: [1, 1.3, 1],
                   rotate: [0, 120, 240],
@@ -236,11 +236,11 @@ const HeroSection = () => {
                 }}
                 transition={{ repeat: Infinity, duration: 2.8, delay: 1.2, ease: "easeInOut" }}
               >
-                <HiSparkles className="w-8 h-8 drop-shadow-lg" />
+                <HiSparkles className="w-5 h-5 sm:w-8 sm:h-8 drop-shadow-lg" />
               </motion.div>
 
               {/* Name badge */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-accent-500 text-primary-900 px-6 py-2 rounded-full font-bold text-lg shadow-lg z-20">
+              <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 bg-accent-500 text-primary-900 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-bold text-sm sm:text-lg shadow-lg z-20 whitespace-nowrap">
                 Chantre CONSTANCE
               </div>
             </div>
@@ -248,37 +248,51 @@ const HeroSection = () => {
 
           {/* Right Column - Content */}
           <motion.div
-            className="order-1 lg:order-2 text-center lg:text-left"
+            className="order-2 lg:order-2 text-center lg:text-left"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {/* Event Type Badge - Moved to top for better visibility */}
-            <div className="text-center lg:text-left mb-4">
-              <span className="inline-block px-6 py-3 bg-accent-500 text-primary-900 rounded-full text-lg font-bold shadow-lg">
+            <div className="text-center lg:text-left mb-3 sm:mb-4">
+              <span className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-accent-500 text-primary-900 rounded-full text-sm sm:text-lg font-bold shadow-lg">
                 {currentEvent.category}
               </span>
             </div>
 
             {/* Event Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
+            <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-2 sm:mb-4 break-words">
               {currentEvent.name?.fr || currentEvent.name}
             </h1>
 
+            {/* Infoline - Placed high for mobile visibility */}
+            {currentEvent.infoline && (
+              <a
+                href={`tel:${currentEvent.infoline.replace(/\s/g, '')}`}
+                className="flex flex-col xs:flex-row items-center justify-center px-5 sm:px-6 py-3 bg-accent-500 rounded-2xl xs:rounded-full hover:bg-accent-400 active:bg-accent-600 transition-colors shadow-lg min-h-[56px] xs:min-h-[48px] w-full sm:w-auto max-w-md mx-auto lg:mx-0 mb-3 sm:mb-4"
+              >
+                <div className="flex items-center mb-1 xs:mb-0">
+                  <span className="mr-2 text-lg">📞</span>
+                  <span className="text-primary-900 font-semibold text-base">Infoline :</span>
+                </div>
+                <span className="xs:ml-2 text-primary-900 font-bold text-lg xs:text-base">{currentEvent.infoline}</span>
+              </a>
+            )}
+
             {/* Tagline */}
             {currentEvent.tagline && (
-              <p className="text-lg md:text-xl text-accent-400 font-semibold mb-4">
+              <p className="text-sm sm:text-base md:text-lg text-accent-400 font-semibold mb-2 sm:mb-4">
                 {currentEvent.tagline}
               </p>
             )}
 
             {/* Event Description */}
-            <p className="text-base md:text-lg text-gray-300 mb-6">
+            <p className="text-xs sm:text-sm md:text-base text-gray-300 mb-3 sm:mb-6 line-clamp-3 sm:line-clamp-none">
               {currentEvent.description?.fr || currentEvent.description}
             </p>
 
             {/* Event Info */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 mb-3 sm:mb-6 text-xs sm:text-sm md:text-base">
               {currentEvent.startDate && (
                 <div className="flex items-center space-x-2 text-white/80">
                   <HiCalendar className="w-5 h-5 text-accent-400" />
@@ -293,29 +307,20 @@ const HeroSection = () => {
               )}
             </div>
 
-            {/* Infoline & Email */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
-              {currentEvent.infoline && (
-                <a
-                  href={`tel:${currentEvent.infoline.replace(/\s/g, '')}`}
-                  className="inline-flex items-center px-6 py-3 bg-accent-500 rounded-full hover:bg-accent-400 transition-colors shadow-lg"
-                >
-                  <span className="mr-2">📞</span>
-                  <span className="text-accent-900 font-semibold">Infoline:</span>
-                  <span className="ml-2 text-gray-900 font-bold">{currentEvent.infoline}</span>
-                </a>
-              )}
-              <a
-                href="mailto:infos@constanceaman.com"
-                className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-colors border border-white/20"
-              >
-                <span className="mr-2">✉️</span>
-                <span className="text-white font-medium">infos@constanceaman.com</span>
-              </a>
-            </div>
+            {/* Email Contact */}
+            <a
+              href="mailto:infos@constanceaman.com"
+              className="flex flex-col xs:flex-row items-center justify-center px-5 sm:px-6 py-3 bg-white/10 backdrop-blur-sm rounded-2xl xs:rounded-full hover:bg-white/20 active:bg-white/30 transition-colors border border-white/20 min-h-[56px] xs:min-h-[48px] w-full sm:w-auto max-w-md mx-auto lg:mx-0 mb-3 sm:mb-6"
+            >
+              <div className="flex items-center mb-1 xs:mb-0">
+                <span className="mr-2 text-lg">✉️</span>
+                <span className="text-white font-semibold text-base">Email :</span>
+              </div>
+              <span className="xs:ml-2 text-white font-medium text-sm xs:text-base">infos@constanceaman.com</span>
+            </a>
 
             {/* Countdown */}
-            <div className="grid grid-cols-4 gap-3 max-w-md mx-auto lg:mx-0 mb-6">
+            <div className="grid grid-cols-2 xs:grid-cols-4 gap-2 sm:gap-3 max-w-xs xs:max-w-md mx-auto lg:mx-0 mb-4 sm:mb-6">
               {[
                 { value: countdown.days, label: t('countdown.days') },
                 { value: countdown.hours, label: t('countdown.hours') },
@@ -324,15 +329,15 @@ const HeroSection = () => {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-3"
+                  className="bg-white/10 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-white">
+                  <div className="text-lg sm:text-2xl md:text-3xl font-bold text-white">
                     {String(item.value).padStart(2, '0')}
                   </div>
-                  <div className="text-xs text-gray-400 uppercase tracking-wider">
+                  <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-wider truncate">
                     {item.label}
                   </div>
                 </motion.div>
@@ -340,10 +345,10 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 w-full sm:w-auto">
               <motion.button
                 onClick={scrollToTickets}
-                className="inline-flex items-center px-8 py-4 bg-accent-500 text-primary-900 font-bold rounded-full hover:bg-accent-400 transition-all shadow-lg hover:shadow-accent-500/25"
+                className="inline-flex items-center px-4 sm:px-8 py-3 sm:py-4 bg-accent-500 text-primary-900 font-bold rounded-full hover:bg-accent-400 transition-all shadow-lg hover:shadow-accent-500/25 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 animate={{
@@ -370,7 +375,7 @@ const HeroSection = () => {
                     window.location.hash = 'program';
                   }
                 }}
-                className="inline-flex items-center px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20"
+                className="inline-flex items-center px-4 sm:px-8 py-3 sm:py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
