@@ -351,7 +351,7 @@ const DonationSection = () => {
             <div className="mt-6 p-4 bg-gradient-to-r from-orange-50 to-blue-50 rounded-xl border border-orange-200">
               <div className="flex items-center justify-center mb-2">
                 <HiPhone className="w-5 h-5 text-orange-500 mr-2" />
-                <span className="text-lg font-bold text-gray-900">07 57 42 66 15</span>
+                <span className="text-lg font-bold text-gray-900">07 08 97 32 75</span>
               </div>
               <div className="flex justify-center space-x-3">
                 <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-bold rounded-full">Wave</span>
@@ -410,7 +410,7 @@ const DonationSection = () => {
                   <div className="mt-6 p-6 bg-gradient-to-r from-orange-50 to-blue-50 rounded-2xl border border-orange-200">
                     <div className="flex items-center justify-center space-x-3 mb-3">
                       <HiPhone className="w-8 h-8 text-orange-500" />
-                      <span className="text-3xl font-bold text-gray-900">07 57 42 66 15</span>
+                      <span className="text-3xl font-bold text-gray-900">07 08 97 32 75</span>
                     </div>
                     <div className="flex justify-center space-x-4">
                       <span className="px-4 py-2 bg-orange-500 text-white rounded-full font-semibold">Wave</span>
@@ -488,7 +488,7 @@ const DonationSection = () => {
                     </h4>
                     <div className="flex items-center justify-center space-x-3 mb-3">
                       <HiPhone className="w-8 h-8 text-orange-500" />
-                      <span className="text-3xl font-bold text-gray-900">07 57 42 66 15</span>
+                      <span className="text-3xl font-bold text-gray-900">07 08 97 32 75</span>
                     </div>
                     <div className="flex justify-center space-x-4">
                       <span className="px-4 py-2 bg-orange-500 text-white rounded-full font-bold text-sm">Wave</span>

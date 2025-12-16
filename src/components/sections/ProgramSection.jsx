@@ -9,8 +9,69 @@ const ProgramSection = () => {
   const { event, content } = useEvent();
   const [selectedDay, setSelectedDay] = useState(0);
 
-  // Get schedule from event or content
-  const schedule = event?.schedule || content?.program || [];
+  // Programme statique de la soirée "Adorons Ensemble"
+  const defaultSchedule = [
+    {
+      _id: '1',
+      title: 'Prière d\'Ouverture',
+      startTime: '2025-12-20T18:00:00',
+      description: 'Moment de recueillement et de prière pour ouvrir la soirée',
+      tags: ['Prière', 'Ouverture']
+    },
+    {
+      _id: '2',
+      title: 'Passage des Artistes Guests',
+      startTime: '2025-12-20T18:00:00',
+      endTime: '2025-12-20T18:45:00',
+      description: 'Prestations des artistes invités',
+      tags: ['Musique', 'Gospel']
+    },
+    {
+      _id: '3',
+      title: 'Animation spéciale "Adorons en Famille"',
+      startTime: '2025-12-20T18:45:00',
+      endTime: '2025-12-20T19:05:00',
+      description: 'Moment de partage et d\'adoration en famille',
+      tags: ['Animation', 'Famille'],
+      featured: true
+    },
+    {
+      _id: '4',
+      title: 'Adoration avec Constance',
+      startTime: '2025-12-20T19:05:00',
+      endTime: '2025-12-20T20:15:00',
+      description: 'Moment fort d\'adoration avec la chantre Constance',
+      performer: { name: 'Chantre Constance' },
+      tags: ['Adoration', 'Worship'],
+      featured: true
+    },
+    {
+      _id: '5',
+      title: 'Séance Photos avec les familles',
+      startTime: '2025-12-20T20:15:00',
+      endTime: '2025-12-20T20:30:00',
+      description: 'Immortalisez ce moment en famille avec Constance',
+      tags: ['Photos', 'Souvenirs']
+    },
+    {
+      _id: '6',
+      title: 'Dédicace de CD et clés USB',
+      startTime: '2025-12-20T20:30:00',
+      endTime: '2025-12-20T20:55:00',
+      description: 'Rencontrez Constance et repartez avec un souvenir dédicacé',
+      tags: ['Dédicace', 'Rencontre']
+    },
+    {
+      _id: '7',
+      title: 'Fin de la soirée',
+      startTime: '2025-12-20T21:00:00',
+      description: 'Clôture de la soirée "Adorons Ensemble"',
+      tags: ['Clôture']
+    }
+  ];
+
+  // Get schedule from event or content, fallback to default schedule
+  const schedule = event?.schedule?.length > 0 ? event.schedule : (content?.program?.length > 0 ? content.program : defaultSchedule);
 
   // Group schedule by day if event spans multiple days
   const getDays = () => {

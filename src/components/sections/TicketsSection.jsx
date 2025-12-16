@@ -102,11 +102,11 @@ const TicketsSection = () => {
               <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <p className="text-gray-600 font-medium mb-2">{t('tickets.mobilePayment.sendPaymentTo')}</p>
                 <a
-                  href="tel:+2250757426615"
+                  href="tel:+2250708973275"
                   className="flex items-center justify-center text-2xl md:text-3xl font-bold text-purple-600 hover:text-purple-700 transition-colors"
                 >
                   <HiPhone className="w-8 h-8 mr-2" />
-                  07 57 42 66 15
+                  07 08 97 32 75
                 </a>
                 {/* Wave & Orange Money logos */}
                 <div className="flex items-center justify-center gap-4 mt-4">
