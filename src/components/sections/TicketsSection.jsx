@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { HiTicket, HiCheck, HiExternalLink } from 'react-icons/hi';
+import { HiTicket, HiCheck, HiExternalLink, HiPhone } from 'react-icons/hi';
 
 const TicketsSection = () => {
   const { t } = useTranslation();
@@ -14,23 +14,23 @@ const TicketsSection = () => {
       _id: 'standard',
       name: 'STANDARD',
       price: 10000,
-      description: 'Accès à la soirée gospel',
-      benefits: [
-        'Accès à la salle',
-        'Place assise standard',
-        'Ambiance familiale garantie'
+      descriptionKey: 'tickets.accessToEvent',
+      benefitKeys: [
+        'tickets.hallAccess',
+        'tickets.standardSeat',
+        'tickets.familyAmbiance'
       ],
       featured: false
     },
     {
-      _id: 'premium',
-      name: 'PLACE PREMIUM',
+      _id: 'vip',
+      name: 'PLACE VIP',
       price: 20000,
-      description: 'Expérience privilégiée',
-      benefits: [
-        'Accès prioritaire',
-        'Place assise premium',
-        'Ambiance familiale garantie'
+      descriptionKey: 'tickets.privilegedExperience',
+      benefitKeys: [
+        'tickets.priorityAccess',
+        'tickets.vipSeat',
+        'tickets.familyAmbiance'
       ],
       featured: false
     }
@@ -56,17 +56,69 @@ const TicketsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-4">
-            Billetterie
+            {t('tickets.title')}
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            Réservez vos places
+            {t('tickets.subtitle')}
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Offrez à votre famille le plus beau des cadeaux avant l'heure
+            {t('tickets.description')}
           </p>
         </motion.div>
 
-        {/* Ticket Types Grid */}
+        {/* Wave/Orange Money Payment Section - EN PREMIER */}
+        <motion.div
+          className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 rounded-2xl p-6 md:p-8 shadow-xl mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Left - Payment Info */}
+            <div className="text-center md:text-left">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                {t('tickets.mobilePayment.title')}
+              </h3>
+              <p className="text-white/90 text-lg mb-4">
+                {t('tickets.mobilePayment.description')}
+              </p>
+
+              {/* Ticket Prices */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                <div className="bg-white/20 rounded-xl px-4 py-3">
+                  <p className="text-white font-semibold">{t('tickets.mobilePayment.vipTicket')}</p>
+                  <p className="text-2xl font-bold text-white">20 000 F</p>
+                </div>
+                <div className="bg-white/20 rounded-xl px-4 py-3">
+                  <p className="text-white font-semibold">{t('tickets.mobilePayment.standardTicket')}</p>
+                  <p className="text-2xl font-bold text-white">10 000 F</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right - Phone Number */}
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <p className="text-gray-600 font-medium mb-2">{t('tickets.mobilePayment.sendPaymentTo')}</p>
+                <a
+                  href="tel:+2250757426615"
+                  className="flex items-center justify-center text-2xl md:text-3xl font-bold text-purple-600 hover:text-purple-700 transition-colors"
+                >
+                  <HiPhone className="w-8 h-8 mr-2" />
+                  07 57 42 66 15
+                </a>
+                {/* Wave & Orange Money logos */}
+                <div className="flex items-center justify-center gap-4 mt-4">
+                  <span className="px-3 py-1 bg-blue-500 text-white font-bold rounded-lg text-sm">WAVE</span>
+                  <span className="px-3 py-1 bg-orange-500 text-white font-bold rounded-lg text-sm">ORANGE MONEY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Ticket Types Grid - TIKERAMA */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
           {ticketTypes.map((ticket, index) => (
             <motion.div
@@ -99,14 +151,14 @@ const TicketsSection = () => {
               {/* Ticket Body */}
               <div className="p-6">
                 {/* Description */}
-                <p className="text-gray-600 mb-6">{ticket.description}</p>
+                <p className="text-gray-600 mb-6">{t(ticket.descriptionKey)}</p>
 
                 {/* Features */}
                 <ul className="space-y-3 mb-6">
-                  {ticket.benefits?.map((benefit, idx) => (
+                  {ticket.benefitKeys?.map((benefitKey, idx) => (
                     <li key={idx} className="flex items-start">
                       <HiCheck className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{benefit}</span>
+                      <span className="text-gray-700 text-sm">{t(benefitKey)}</span>
                     </li>
                   ))}
                 </ul>
@@ -121,7 +173,7 @@ const TicketsSection = () => {
                   }`}
                 >
                   <HiTicket className="w-5 h-5 mr-2" />
-                  Acheter sur TIKERAMA.COM
+                  {t('tickets.buyOnTikerama')}
                 </button>
               </div>
             </motion.div>
@@ -152,14 +204,14 @@ const TicketsSection = () => {
                 />
               </a>
               <p className="text-center text-primary-900 font-bold mt-4 text-lg">
-                Scannez pour acheter vos billets
+                {t('tickets.scanToBuy')}
               </p>
             </div>
 
             {/* Right - Text Content */}
             <div className="text-center lg:text-left flex-1">
               <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-primary-900 mb-2">
-                TICKETS DISPONIBLES SUR
+                {t('tickets.ticketsAvailableOn')}
               </h3>
               <a
                 href={TIKERAMA_URL}
@@ -171,13 +223,13 @@ const TicketsSection = () => {
                 <HiExternalLink className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 ml-2 flex-shrink-0" />
               </a>
               <p className="text-primary-800 mt-4 text-lg">
-                Scannez le QR code ou cliquez pour réserver vos places
+                {t('tickets.scanOrClick')}
               </p>
 
               {/* Infoline */}
               <div className="mt-4">
                 <p className="text-primary-900 font-semibold">
-                  INFOLINE: <a href="tel:+22507089732 75" className="hover:underline">+225 07 08 97 32 75</a>
+                  {t('tickets.infoline')}: <a href="tel:+22507089732 75" className="hover:underline">+225 07 08 97 32 75</a>
                 </p>
               </div>
 
@@ -191,7 +243,7 @@ const TicketsSection = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <HiTicket className="w-6 h-6 mr-2" />
-                Acheter mes billets maintenant
+                {t('tickets.buyNow')}
               </motion.a>
             </div>
           </div>

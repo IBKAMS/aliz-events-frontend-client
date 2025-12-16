@@ -10,13 +10,13 @@ const LocationSection = () => {
 
   // Get venue info from event or content
   const venue = event?.venue || content?.venue || {
-    name: 'Hotel Belle Cote',
-    address: 'Cocody',
+    name: 'Hôtel Belle Côte',
+    address: 'Riviera Palmeraie, Les Rosiers 5ème programme, 8ème tranche, Cocody',
     city: 'Abidjan',
-    country: 'Cote d\'Ivoire',
+    country: 'Côte d\'Ivoire',
     coordinates: {
-      lat: 5.3550,
-      lng: -3.9900,
+      lat: 5.38713,
+      lng: -3.97015,
     },
   };
 
@@ -42,15 +42,13 @@ const LocationSection = () => {
     t('location.amenities.parking'),
     t('location.amenities.accessible'),
     t('location.amenities.restaurant'),
-    t('location.amenities.wifi'),
   ];
 
-  // Generate Google Maps embed URL
+  // Generate Google Maps embed URL - Using Hotel Belle Côte exact location
   const getMapUrl = () => {
-    if (venue.coordinates?.lat && venue.coordinates?.lng) {
-      return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.5!2d${venue.coordinates.lng}!3d${venue.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjEnMzYuMCJOIDPCsDU2JzI0LjAiVw!5e0!3m2!1sfr!2sci!4v1234567890`;
-    }
-    return `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127287.6!2d-4.0!3d5.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ea5311959121%3A0x3fe70ddce19221a6!2sAbidjan!5e0!3m2!1sfr!2sci!4v1234567890`;
+    // Use Google Maps embed with search query for Hotel Belle Côte Cocody
+    const query = encodeURIComponent('Hotel Belle Cote Cocody Palmeraie Abidjan');
+    return `https://www.google.com/maps?q=${query}&output=embed`;
   };
 
   const openInGoogleMaps = () => {

@@ -5,23 +5,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   HiMenu,
   HiX,
-  HiShoppingCart,
   HiGlobe,
   HiHeart
 } from 'react-icons/hi';
-import { useCart } from '../../context/CartContext';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
-  const { totalTickets } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState('home');
 
   const navItems = [
     { key: 'home', path: '/', label: t('nav.home') },
-    { key: 'artist', path: '/#artist', label: "L'Artiste" },
+    { key: 'artist', path: '/#artist', label: t('nav.artist') },
     { key: 'program', path: '/#program', label: t('nav.program') },
     { key: 'gallery', path: '/#gallery', label: t('nav.gallery') },
     { key: 'tickets', path: '/#tickets', label: t('nav.tickets') },
@@ -140,23 +137,6 @@ const Navbar = () => {
             >
               <HiHeart className="w-5 h-5" />
               <span>{t('nav.donate')}</span>
-            </Link>
-
-            {/* Cart */}
-            <Link
-              to="/checkout"
-              className={`relative p-2 rounded-full transition-colors ${
-                shouldUseDarkTheme
-                  ? 'text-gray-700 hover:bg-gray-100'
-                  : 'text-white hover:bg-white/20'
-              }`}
-            >
-              <HiShoppingCart className="w-6 h-6" />
-              {totalTickets > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-                  {totalTickets}
-                </span>
-              )}
             </Link>
 
             {/* Mobile Menu Button - Touch target optimisé (min 44x44px) */}

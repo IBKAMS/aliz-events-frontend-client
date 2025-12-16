@@ -7,7 +7,6 @@ import {
   TicketsSection,
   DonationSection,
   GallerySection,
-  TestimonialsSection,
   FAQSection,
   ContactSection,
   LocationSection,
@@ -21,22 +20,50 @@ const sections = [
   { id: 'tickets', Component: TicketsSection },
   { id: 'donation', Component: DonationSection },
   { id: 'gallery', Component: GallerySection },
-  { id: 'testimonials', Component: TestimonialsSection },
   { id: 'faq', Component: FAQSection },
   { id: 'contact', Component: ContactSection },
   { id: 'location', Component: LocationSection },
 ];
 
+// Helper function to safely check window width (SSR-safe, mobile-first)
+const getInitialMobileState = () => {
+  if (typeof window === 'undefined') return true; // Default to mobile for SSR
+  return window.innerWidth < 1024;
+};
+
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState(0);
+  // Initialize with actual window size immediately (mobile-first fallback for SSR)
+  const [isMobile, setIsMobile] = useState(getInitialMobileState);
+
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    // Run immediately to ensure correct state
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Navigate to a specific section by ID
   const navigateToSection = useCallback((sectionId) => {
-    const index = sections.findIndex(s => s.id === sectionId);
-    if (index !== -1) {
-      setActiveSection(index);
+    if (isMobile) {
+      // On mobile, scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On desktop, use fullpage navigation
+      const index = sections.findIndex(s => s.id === sectionId);
+      if (index !== -1) {
+        setActiveSection(index);
+      }
     }
-  }, []);
+  }, [isMobile]);
 
   // Expose navigation function globally for Navbar
   useEffect(() => {
@@ -60,9 +87,21 @@ const HomePage = () => {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [navigateToSection]);
 
-  // Get current section component
+  // Get current section component (for desktop only)
   const CurrentSection = sections[activeSection]?.Component;
 
+  // MOBILE: Show ALL sections with normal scrolling
+  if (isMobile) {
+    return (
+      <div className="mobile-scroll-container">
+        {sections.map(({ id, Component }) => (
+          <Component key={id} />
+        ))}
+      </div>
+    );
+  }
+
+  // DESKTOP: Keep fullpage navigation
   return (
     <div className="fullpage-container">
       <AnimatePresence mode="wait">
@@ -78,8 +117,8 @@ const HomePage = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Section indicators (dots) on the right side */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2">
+      {/* Section indicators (dots) on the right side - DESKTOP ONLY */}
+      <div className="hidden lg:flex fixed right-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-2">
         {sections.map((section, index) => (
           <button
             key={section.id}

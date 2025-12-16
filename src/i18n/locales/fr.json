@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Accueil",
+    "artist": "L'Artiste",
     "artists": "Artistes",
     "program": "Programme",
     "tickets": "Billetterie",
@@ -43,7 +44,28 @@
   "tickets": {
     "title": "Billetterie",
     "subtitle": "Réservez vos places",
-    "description": "Réservez vos places et vivez une expérience unique",
+    "description": "Offrez à votre famille le plus beau des cadeaux avant l'heure",
+    "mobilePayment": {
+      "title": "Paiement Mobile Money",
+      "description": "Payez vos billets via Wave ou Orange Money",
+      "vipTicket": "Ticket VIP",
+      "standardTicket": "Ticket Standard",
+      "sendPaymentTo": "Envoyez votre paiement au",
+      "instructions": "Précisez votre nom et le type de billet (VIP ou Standard)"
+    },
+    "buyOnTikerama": "Acheter sur TIKERAMA.COM",
+    "ticketsAvailableOn": "TICKETS DISPONIBLES SUR",
+    "scanToBuy": "Scannez pour acheter vos billets",
+    "scanOrClick": "Scannez le QR code ou cliquez pour réserver vos places",
+    "infoline": "INFOLINE",
+    "buyNow": "Acheter mes billets maintenant",
+    "accessToEvent": "Accès à la soirée gospel",
+    "privilegedExperience": "Expérience privilégiée",
+    "hallAccess": "Accès à la salle",
+    "standardSeat": "Place assise standard",
+    "familyAmbiance": "Ambiance familiale garantie",
+    "priorityAccess": "Accès prioritaire",
+    "vipSeat": "Place assise VIP",
     "available": "Disponible",
     "soldOut": "Épuisé",
     "popular": "Populaire",

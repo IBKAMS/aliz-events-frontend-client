@@ -34,6 +34,24 @@ const ArtistSection = () => {
         if (data.success && data.data) {
           const artistData = data.data;
 
+          // Base URL for static assets (without /api/v1)
+          const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5001').replace('/api/v1', '');
+
+          // Helper to prefix URL with base URL if it's a relative path
+          // Also handles localhost URLs from database and replaces them with production URL
+          const prefixUrl = (url) => {
+            if (!url) return '';
+            // Replace localhost URLs with production backend URL
+            if (url.startsWith('http://localhost:5001')) {
+              return url.replace('http://localhost:5001', baseUrl);
+            }
+            if (url.startsWith('http://localhost:5000')) {
+              return url.replace('http://localhost:5000', baseUrl);
+            }
+            if (url.startsWith('http://') || url.startsWith('https://')) return url;
+            return `${baseUrl}${url}`;
+          };
+
           // Map API data to component format
           setArtistFromAPI({
             name: artistData.name || 'Constance Aman',
@@ -44,7 +62,7 @@ const ArtistSection = () => {
             realName: "Coumoin Amani Constance",
             bio: artistData.biography?.fr || "",
             fullBio: artistData.biography?.fr || "",
-            image: artistData.image || "/images/constance-main.jpg",
+            image: prefixUrl(artistData.image) || "/images/constance-main.jpg",
             achievements: [
               { icon: "star", label: "Années de carrière", value: artistData.stats?.years?.toString() || "35+" },
               { icon: "music", label: "Albums studio", value: artistData.stats?.albums?.toString() || "11" },
@@ -54,16 +72,6 @@ const ArtistSection = () => {
             quote: "La musique est ma prière, chaque note est une louange à l'Éternel.",
             style: "Gospel, Afro, Jazz, Bossa Nova",
           });
-
-          // Base URL for static assets (without /api/v1)
-          const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:5001').replace('/api/v1', '');
-
-          // Helper to prefix URL with base URL if it's a relative path
-          const prefixUrl = (url) => {
-            if (!url) return '';
-            if (url.startsWith('http://') || url.startsWith('https://')) return url;
-            return `${baseUrl}${url}`;
-          };
 
           // Set albums if available
           if (artistData.albums && artistData.albums.length > 0) {
@@ -215,19 +223,19 @@ const ArtistSection = () => {
   };
 
   return (
-    <section id="artist" className="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900">
+    <section id="artist" className="bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900 overflow-x-hidden">
       {/* Hero Section - L'Artiste avec image illuminée */}
-      <div className="relative py-20 lg:py-32">
+      <div className="relative pt-20 pb-12 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-6 lg:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <motion.span
-              className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full text-sm font-medium mb-4"
+              className="inline-flex items-center px-3 py-1.5 lg:px-4 lg:py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full text-xs lg:text-sm font-medium mb-3 lg:mb-4"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -250,17 +258,17 @@ const ArtistSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
+              <div className="relative w-full max-w-[260px] xs:max-w-[280px] sm:max-w-sm md:max-w-md mx-auto">
                 {/* Glow effect - hidden on very small screens for performance */}
                 <div className="hidden sm:block absolute -inset-4 bg-gradient-to-br from-primary-500/30 to-secondary-500/30 rounded-3xl blur-2xl" />
 
                 {/* Image wrapper with border */}
-                <div className="relative bg-gradient-to-br from-primary-400 to-secondary-500 p-1 rounded-2xl">
+                <div className="relative w-full max-w-full bg-gradient-to-br from-primary-400 to-secondary-500 p-1 rounded-2xl overflow-hidden">
                   <img
                     src={artist.image}
                     alt={artist.name}
                     className="w-full h-auto rounded-xl shadow-2xl"
-                    style={{ minHeight: '300px', objectFit: 'cover', objectPosition: 'top' }}
+                    style={{ minHeight: '250px', objectFit: 'cover', objectPosition: 'top' }}
                     loading="eager"
                     onError={(e) => {
                       e.target.onerror = null;
@@ -341,8 +349,8 @@ const ArtistSection = () => {
                     <div className="w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-1.5 sm:mb-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                       {getAchievementIcon(achievement.icon)}
                     </div>
-                    <p className="text-lg sm:text-xl font-bold text-white">{achievement.value}</p>
-                    <p className="text-white/60 text-[10px] sm:text-xs">{achievement.label}</p>
+                    <p className="text-base xs:text-lg sm:text-xl font-bold text-white break-words">{achievement.value}</p>
+                    <p className="text-white/60 text-[9px] xs:text-[10px] sm:text-xs leading-tight">{achievement.label}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -449,17 +457,17 @@ const ArtistSection = () => {
       </motion.div>
 
       {/* Albums Timeline Section */}
-      <div className="py-20 bg-gradient-to-b from-primary-800 to-primary-900" ref={timelineRef}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-12 lg:py-20 bg-gradient-to-b from-primary-800 to-primary-900" ref={timelineRef}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
           {/* Section Header */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-8 lg:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="inline-block px-4 py-2 bg-primary-500/20 text-primary-300 rounded-full text-sm font-medium mb-4">
-              <HiMusicNote className="w-4 h-4 inline mr-2" />
+            <span className="inline-block px-3 py-1.5 lg:px-4 lg:py-2 bg-primary-500/20 text-primary-300 rounded-full text-xs lg:text-sm font-medium mb-3 lg:mb-4">
+              <HiMusicNote className="w-3 h-3 lg:w-4 lg:h-4 inline mr-1.5 lg:mr-2" />
               DISCOGRAPHIE
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold text-white mb-2 sm:mb-4">
@@ -472,62 +480,76 @@ const ArtistSection = () => {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 rounded-full" />
+            {/* Timeline Line - Hidden on mobile for cleaner look */}
+            <div className="hidden lg:block absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-primary-600 via-secondary-500 to-primary-600 rounded-full" />
 
-            {/* Albums - Scroll visible sur mobile pour indiquer navigation */}
-            <div className="relative flex justify-start sm:justify-between items-center overflow-x-auto pb-4 sm:pb-4 scrollbar-thin scrollbar-thumb-primary-500 scrollbar-track-primary-800 snap-x snap-mandatory">
-              {albums.map((album, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 flex flex-col items-center px-3 sm:px-4 cursor-pointer group snap-center"
-                  initial={{ opacity: 0, y: isTimelineInView ? 0 : 50 }}
-                  animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  onClick={() => setActiveAlbum(index)}
-                >
-                  {/* Year */}
-                  <motion.p
-                    className={`text-sm font-bold mb-4 transition-colors ${
-                      activeAlbum === index ? 'text-primary-400' : 'text-gray-500'
-                    }`}
+            {/* Albums - Horizontal scroll on mobile */}
+            <div className="relative -mx-4 px-4 lg:mx-0 lg:px-0 overflow-hidden">
+              <div className="flex lg:justify-between items-start gap-3 lg:gap-0 overflow-x-auto pb-4 lg:pb-4 scrollbar-thin scrollbar-thumb-primary-500 scrollbar-track-primary-800 snap-x snap-mandatory whitespace-nowrap" style={{ WebkitOverflowScrolling: 'touch' }}>
+                {albums.map((album, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex-shrink-0 flex flex-col items-center w-[85px] xs:w-[100px] sm:w-[120px] lg:w-auto lg:flex-1 cursor-pointer group snap-center"
+                    initial={{ opacity: 0, y: isTimelineInView ? 0 : 50 }}
+                    animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    onClick={() => setActiveAlbum(index)}
                   >
-                    {album.year}
-                  </motion.p>
+                    {/* Year */}
+                    <motion.p
+                      className={`text-xs lg:text-sm font-bold mb-2 lg:mb-4 transition-colors ${
+                        activeAlbum === index ? 'text-primary-400' : 'text-gray-500'
+                      }`}
+                    >
+                      {album.year}
+                    </motion.p>
 
-                  {/* Timeline Point */}
+                    {/* Timeline Point - Hidden on mobile */}
+                    <div
+                      className={`hidden lg:block w-6 h-6 rounded-full border-4 transition-all mb-4 ${
+                        activeAlbum === index
+                          ? 'bg-primary-500 border-primary-300 scale-125'
+                          : 'bg-gray-700 border-gray-600 group-hover:bg-primary-600'
+                      }`}
+                    />
+
+                    {/* Album Cover */}
+                    <motion.div
+                      className={`relative w-[70px] h-[70px] xs:w-[80px] xs:h-[80px] sm:w-[100px] sm:h-[100px] lg:w-32 lg:h-32 rounded-lg lg:rounded-xl overflow-hidden shadow-2xl transition-all ${
+                        activeAlbum === index ? 'scale-105 ring-2 ring-primary-500' : 'opacity-80 group-hover:opacity-100'
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <img
+                        src={album.cover}
+                        alt={album.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = '/images/albums/default.jpg';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <p className="absolute bottom-1 left-1 right-1 lg:bottom-2 lg:left-2 lg:right-2 text-white text-[9px] sm:text-[10px] lg:text-xs font-medium truncate text-center">
+                        {album.title}
+                      </p>
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+              {/* Scroll indicator for mobile */}
+              <div className="lg:hidden flex justify-center mt-2 gap-1">
+                {albums.map((_, index) => (
                   <div
-                    className={`w-6 h-6 rounded-full border-4 transition-all mb-4 ${
-                      activeAlbum === index
-                        ? 'bg-primary-500 border-primary-300 scale-125'
-                        : 'bg-gray-700 border-gray-600 group-hover:bg-primary-600'
+                    key={index}
+                    className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                      activeAlbum === index ? 'bg-primary-400' : 'bg-gray-600'
                     }`}
                   />
-
-                  {/* Album Cover */}
-                  <motion.div
-                    className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg sm:rounded-xl overflow-hidden shadow-2xl transition-all ${
-                      activeAlbum === index ? 'scale-105 sm:scale-110 ring-2 sm:ring-4 ring-primary-500' : 'opacity-70 group-hover:opacity-100'
-                    }`}
-                    whileHover={{ scale: 1.1 }}
-                  >
-                    <img
-                      src={album.cover}
-                      alt={album.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <p className="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 right-1 sm:right-2 text-white text-[10px] sm:text-xs font-medium truncate">
-                      {album.title}
-                    </p>
-                  </motion.div>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
 
             {/* Active Album Details */}
@@ -599,7 +621,7 @@ const ArtistSection = () => {
 
                     {/* Streaming Buttons */}
                     <motion.div
-                      className="flex flex-wrap gap-3"
+                      className="flex flex-wrap gap-2 sm:gap-3"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
